@@ -101,20 +101,11 @@ daza.ar-env/
 - **Idempotent setup:** Safe to run multiple times—skips existing repositories.
 - **Unified dev environment:** Serve all sites with Vite, each on its own port.
 - **No extra dependencies:** Only Vite is required for development.
-- **Easy error tracking:** Vite shows errors in the browser overlay.
 
 ## Troubleshooting
 
 - **Permission denied:**
   - Make sure scripts are executable: `chmod +x setup.sh dev.sh`
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
