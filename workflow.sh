@@ -26,7 +26,7 @@ git checkout $BASE
 git pull origin $BASE
 
 # Use a branch name based on issue and commit message
-BRANCH_NAME="feature/${ISSUE_NUMBER}-$(echo $COMMIT_MESSAGE | tr ' ' '-' | tr -cd '[:alnum:]-' | cut -c1-30 | tr '[:upper:]' '[:lower:]')"
+BRANCH_NAME="feature/${ISSUE_NUMBER}-$(echo "$COMMIT_MESSAGE" | tr ' ' '-' | tr -cd '[:alnum:]-' | cut -c1-30 | tr '[:upper:]' '[:lower:]')"
 git checkout -b "$BRANCH_NAME" $BASE
 
 git add .

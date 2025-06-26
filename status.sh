@@ -224,7 +224,7 @@ fi
 
 # Check CPU load (Linux)
 if [ -f "/proc/loadavg" ]; then
-    LOAD=$(cat /proc/loadavg | cut -d' ' -f1)
+    LOAD=$(cut -d' ' -f1 /proc/loadavg)
     echo -e "${INFO} CPU Load: ${LOAD}"
 fi
 
