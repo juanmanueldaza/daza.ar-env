@@ -23,7 +23,8 @@ h1 {
   width: 100%;
   border-collapse: collapse;
 }
-.site-list th, .site-list td {
+.site-list th,
+.site-list td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #eee;
   text-align: left;
@@ -31,8 +32,14 @@ h1 {
 .site-list th {
   background: #f0f0f0;
 }
-.status-up { color: #16a34a; font-weight: bold; }
-.status-down { color: #dc2626; font-weight: bold; }
+.status-up {
+  color: #16a34a;
+  font-weight: bold;
+}
+.status-down {
+  color: #dc2626;
+  font-weight: bold;
+}
 .quick-actions button {
   margin-right: 0.5rem;
   padding: 0.3rem 0.8rem;

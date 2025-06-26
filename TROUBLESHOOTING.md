@@ -24,14 +24,18 @@ npm ls
 ### 1. Setup Script Fails
 
 #### Problem: "Command 'gh' not found"
+
 **Solution:**
+
 1. Install GitHub CLI: https://cli.github.com/
 2. For Ubuntu/Debian: `sudo apt install gh`
 3. For macOS: `brew install gh`
 4. For Windows: Download from GitHub CLI website
 
 #### Problem: "GitHub CLI not authenticated"
+
 **Solution:**
+
 ```bash
 gh auth login
 # Follow the prompts to authenticate
@@ -39,14 +43,18 @@ gh auth status  # Verify authentication
 ```
 
 #### Problem: "Permission denied" when running setup.sh
+
 **Solution:**
+
 ```bash
 chmod +x setup.sh dev.sh workflow.sh
 ./setup.sh
 ```
 
 #### Problem: "Failed to clone repository"
+
 **Possible causes and solutions:**
+
 1. **Network issues**: Check your internet connection
 2. **Authentication**: Run `gh auth login` again
 3. **Repository access**: Verify the repository exists and is accessible
@@ -55,7 +63,9 @@ chmod +x setup.sh dev.sh workflow.sh
 ### 2. Development Server Issues
 
 #### Problem: "Sites directory not found"
+
 **Solution:**
+
 ```bash
 # Run setup first
 ./setup.sh
@@ -69,7 +79,9 @@ gh repo clone juanmanueldaza/onepager
 ```
 
 #### Problem: "UNMET DEPENDENCY vite@^7.0.0"
+
 **Solution:**
+
 ```bash
 npm install
 # or
@@ -77,7 +89,9 @@ npm install vite@^7.0.0
 ```
 
 #### Problem: "Cannot start development servers"
+
 **Solution:**
+
 1. Check if sites directory exists: `ls -la sites/`
 2. Check if each site has proper structure:
    ```bash
@@ -92,7 +106,9 @@ npm install vite@^7.0.0
    ```
 
 #### Problem: "Port already in use"
+
 **Solution:**
+
 1. Check what's using the ports:
    ```bash
    lsof -i :3001
@@ -109,7 +125,9 @@ npm install vite@^7.0.0
 ### 3. Domain Resolution Issues
 
 #### Problem: "cv.local" doesn't resolve in browser
+
 **Solution:**
+
 1. Check `/etc/hosts` file:
    ```bash
    grep "\.local" /etc/hosts
@@ -132,7 +150,9 @@ npm install vite@^7.0.0
    - **Windows**: `ipconfig /flushdns`
 
 #### Problem: Browser shows "This site can't be reached"
+
 **Solution:**
+
 1. Verify the dev server is running: `ps aux | grep vite`
 2. Check if the port is listening: `netstat -tulpn | grep :3001`
 3. Try accessing via localhost: `http://localhost:3001`
@@ -141,7 +161,9 @@ npm install vite@^7.0.0
 ### 4. Configuration Issues
 
 #### Problem: "Cannot resolve module" errors
+
 **Solution:**
+
 1. Check if using correct module system:
    - Ensure `package.json` has `"type": "module"`
    - Use ES6 imports: `import { something } from 'module'`
@@ -153,7 +175,9 @@ npm install vite@^7.0.0
    ```
 
 #### Problem: "Vite config is not working"
+
 **Solution:**
+
 1. Check vite.config.js syntax:
    ```bash
    node -c vite.config.js
@@ -166,7 +190,9 @@ npm install vite@^7.0.0
 ### 5. Script Execution Issues
 
 #### Problem: "workflow.sh fails with merge conflicts"
+
 **Solution:**
+
 1. Check current git status: `git status`
 2. Resolve conflicts manually:
    ```bash
@@ -176,7 +202,9 @@ npm install vite@^7.0.0
 3. Ensure working directory is clean before running workflow.sh
 
 #### Problem: "Permission denied" on script execution
+
 **Solution:**
+
 ```bash
 chmod +x *.sh
 ```
@@ -184,13 +212,15 @@ chmod +x *.sh
 ### 6. Performance Issues
 
 #### Problem: "Vite is slow to start"
+
 **Solution:**
+
 1. Enable polling in vite.config.js (already configured)
 2. Exclude node_modules from file watching:
    ```javascript
    server: {
      watch: {
-       ignored: ['**/node_modules/**']
+       ignored: ['**/node_modules/**'];
      }
    }
    ```
@@ -198,7 +228,9 @@ chmod +x *.sh
 4. Check available disk space: `df -h`
 
 #### Problem: "High CPU usage"
+
 **Solution:**
+
 1. Limit concurrent dev servers:
    ```bash
    # Start only specific sites
@@ -211,20 +243,24 @@ chmod +x *.sh
 ## Environment-Specific Issues
 
 ### Linux/WSL
+
 - **Issue**: Permission issues with /etc/hosts
 - **Solution**: Use `sudo` for hosts file modification, or run setup.sh as root
 
 ### macOS
+
 - **Issue**: Firewall blocking local connections
 - **Solution**: System Preferences > Security & Privacy > Firewall > Allow Vite
 
 ### Windows
+
 - **Issue**: .local domains not resolving
 - **Solution**: Use Windows host file at `C:\Windows\System32\drivers\etc\hosts`
 
 ## Debugging Steps
 
 ### 1. Check System Requirements
+
 ```bash
 # Node.js version
 node --version  # Should be v18+
@@ -237,6 +273,7 @@ df -h
 ```
 
 ### 2. Verbose Logging
+
 ```bash
 # Run with debug output
 DEBUG=vite:* npm run dev:cv
@@ -246,6 +283,7 @@ GIT_TRACE=1 git status
 ```
 
 ### 3. Clean Reset
+
 ```bash
 # Nuclear option: start fresh
 npm run clean  # or rm -rf sites/ node_modules/
@@ -296,6 +334,7 @@ If none of these solutions work:
 ## Advanced Troubleshooting
 
 ### Network Diagnostics
+
 ```bash
 # Test connectivity to GitHub
 curl -I https://github.com
@@ -308,6 +347,7 @@ nslookup cv.local
 ```
 
 ### Process Management
+
 ```bash
 # Find all Vite processes
 ps aux | grep vite
@@ -320,6 +360,7 @@ htop
 ```
 
 ### Log Analysis
+
 ```bash
 # Check system logs
 journalctl -f  # Linux

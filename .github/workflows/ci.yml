@@ -19,8 +19,8 @@ jobs:
         run: npm install
       - name: Run ESLint
         run: |
-          if [ -f package.json ] && npx eslint --version > /dev/null 2>&1; then
-            npx eslint .
+          if [ -f eslint.config.js ]; then
+            npm run lint
           else
             echo "No ESLint config found, skipping lint."
           fi
@@ -51,6 +51,24 @@ jobs:
         uses: ludeeus/action-shellcheck@v2
         with:
           scandir: './'
+
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Check code formatting
+        run: |
+          if [ -f .prettierrc ]; then
+            npm run format:check
+          else
+            echo "No Prettier config found, skipping format check."
+          fi
 
   test:
     runs-on: ubuntu-latest

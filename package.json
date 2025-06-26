@@ -7,6 +7,14 @@
     "dev": "./dev.sh",
     "build": "echo 'Use site-specific build scripts or Vite as needed.'",
     "clean": "rm -rf sites/ node_modules/",
+    "lint": "npm run lint:root && npm run lint:sites",
+    "lint:root": "eslint *.js 2>/dev/null || eslint *.js",
+    "lint:sites": "find sites -name '*.js' -o -name '*.mjs' -o -name '*.ts' | head -1 >/dev/null && find sites -name '*.js' -o -name '*.mjs' -o -name '*.ts' -exec eslint {} + || echo 'No JS/TS files found in sites'",
+    "lint:fix": "npm run lint:root -- --fix && npm run lint:sites -- --fix 2>/dev/null || true",
+    "format": "npm run format:root && npm run format:sites",
+    "format:root": "prettier --write *.js *.json *.md *.css *.html",
+    "format:sites": "find sites -type f \\( -name '*.js' -o -name '*.mjs' -o -name '*.ts' -o -name '*.json' -o -name '*.md' -o -name '*.css' -o -name '*.html' \\) -exec prettier --write {} + 2>/dev/null || echo 'No files to format in sites'",
+    "format:check": "prettier --check *.js *.json *.md *.css *.html && find sites -type f \\( -name '*.js' -o -name '*.mjs' -o -name '*.ts' -o -name '*.json' -o -name '*.md' -o -name '*.css' -o -name '*.html' \\) -exec prettier --check {} + 2>/dev/null || true",
     "dev:cv": "cd sites/cv && vite --port 3001 --host cv.local",
     "dev:onepager": "cd sites/onepager && vite --port 3002 --host onepager.local",
     "dev:start": "cd sites/start && vite --port 3003 --host start.local",
@@ -16,6 +24,9 @@
     "dev:wallpapers": "cd sites/wallpapers && vite --port 3007 --host wallpapers.local"
   },
   "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
     "vite": "^7.0.0"
   }
 }
