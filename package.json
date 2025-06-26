@@ -1,14 +1,21 @@
 {
   "name": "daza.ar-env",
   "private": true,
+  "type": "module",
+  "description": "Development environment setup tool for daza.ar ecosystem",
   "scripts": {
+    "setup": "./setup.sh",
+    "dev": "./dev.sh",
+    "clean": "rm -rf sites/ node_modules/",
     "dev:cv": "cd sites/cv && vite --port 3001 --host cv.local",
     "dev:onepager": "cd sites/onepager && vite --port 3002 --host onepager.local",
     "dev:start": "cd sites/start && vite --port 3003 --host start.local",
     "dev:navbar": "cd sites/navbar && vite --port 3004 --host navbar.local",
     "dev:mdsite": "cd sites/mdsite && vite --port 3005 --host mdsite.local",
     "dev:data": "cd sites/data && vite --port 3006 --host data.local --open /README.md",
-    "dev:wallpapers": "cd sites/wallpapers && vite --port 3007 --host wallpapers.local"
+    "dev:wallpapers": "cd sites/wallpapers && vite --port 3007 --host wallpapers.local",
+    "check": "npm audit && echo 'All sites:' && find sites -maxdepth 1 -type d | tail -n +2",
+    "update-hosts": "echo 'Checking /etc/hosts for .local domains...' && ./setup.sh --hosts-only"
   },
   "devDependencies": {
     "vite": "^7.0.0"
