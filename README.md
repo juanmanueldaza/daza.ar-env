@@ -225,5 +225,32 @@ The GitHub CLI (`gh`) is a powerful tool for automating and streamlining your wo
 
 *For more CLI usage examples, see the [GitHub CLI docs](https://cli.github.com/manual/).*
 
+## Scripts
+
+- `npm run dev`: Starts all development servers using `./dev.sh`.
+- `npm run build`: (Placeholder) Use site-specific build scripts or Vite as needed.
+- `npm run clean`: Removes `sites/` and `node_modules/` for a fresh start.
+
+> This project follows KISS and minimal dependencies. Only essential scripts and Vite are included. For advanced builds, use site-specific configs.
+
+## Automated Workflow (workflow.sh)
+
+This project provides an automated workflow script (`workflow.sh`) that uses the GitHub CLI (`gh`) for all repository, PR, and issue management tasks. Only Vite is used as an npm dependency.
+
+### Usage
+
+```bash
+./workflow.sh <issue_number> <commit_message> <pr_title> <pr_body>
+```
+- Detects the default branch (develop or main) using `gh`.
+- Creates a feature branch, commits only if there are changes, and pushes to origin.
+- Uses `gh` to create and merge PRs, and close issues.
+- Exits gracefully if there are no changes to commit.
+
+### Principles
+- **KISS**: Simple, robust, and minimal logic.
+- **Minimal dependencies**: Only Vite as an npm dependency; all repo management via GitHub CLI.
+- **gh-first**: Prefer `gh` for all automation; use git only for local diff/staging.
+
 **Author**: Juan Manuel Daza  
 **Website**: [daza.ar](https://daza.ar)
