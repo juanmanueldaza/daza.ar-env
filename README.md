@@ -225,5 +225,13 @@ The GitHub CLI (`gh`) is a powerful tool for automating and streamlining your wo
 
 *For more CLI usage examples, see the [GitHub CLI docs](https://cli.github.com/manual/).*
 
+## Scripts
+
+- `npm run dev`: Starts all development servers using `./dev.sh`.
+- `npm run build`: (Placeholder) Use site-specific build scripts or Vite as needed.
+- `npm run clean`: Removes `sites/` and `node_modules/` for a fresh start.
+
+> This project follows KISS and minimal dependencies. Only essential scripts and Vite are included. For advanced builds, use site-specific configs.
+
 **Author**: Juan Manuel Daza  
 **Website**: [daza.ar](https://daza.ar)
