@@ -24,7 +24,8 @@ assignees: ''
 - [x] KISS (Keep It Simple, Stupid): Solution should be as simple as possible, avoiding unnecessary complexity.
 - [x] SOLID: Code should follow SOLID principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion).
 - [x] CLEAN: Code should be readable, maintainable, and well-structured.
-- [x] Minimal dependencies: Avoid adding new dependencies unless absolutely necessary.
+- [x] Minimal dependencies: Use only Vite as an npm dependency. Prefer built-in tools and avoid extra packages.
+- [x] GitHub CLI first: Use the GitHub CLI (`gh`) for all repo, issue, and PR management tasks whenever possible. Use plain git only for low-level or unsupported operations.
 
 ## Acceptance Criteria
 <!-- List clear, testable requirements for this feature to be considered complete. -->

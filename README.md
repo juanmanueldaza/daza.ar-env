@@ -89,8 +89,9 @@ gh auth login
 ## Principles
 
 - **KISS**: Keep scripts and workflow simple.
+- **Minimal dependencies**: Use only Vite as an npm dependency. Prefer built-in tools and avoid extra packages.
+- **GitHub CLI first**: Use the GitHub CLI (`gh`) for all repo, issue, and PR management tasks whenever possible. Use plain git only for low-level or unsupported operations.
 - **SOLID/CLEAN**: Structure scripts and documentation for clarity and maintainability.
-- **Minimal dependencies**: Use only essential tools (git, GitHub CLI).
 
 ---
 
