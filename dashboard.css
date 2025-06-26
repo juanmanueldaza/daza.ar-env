@@ -1,0 +1,49 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  background: #222;
+  color: #fff;
+  margin: 0;
+  padding: 1rem 2rem;
+}
+#dashboard {
+  margin: 2rem auto;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 2rem;
+}
+.site-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+.site-list th, .site-list td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.site-list th {
+  background: #f0f0f0;
+}
+.status-up { color: #16a34a; font-weight: bold; }
+.status-down { color: #dc2626; font-weight: bold; }
+.quick-actions button {
+  margin-right: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background 0.2s;
+}
+.quick-actions button:hover {
+  background: #1d4ed8;
+}
