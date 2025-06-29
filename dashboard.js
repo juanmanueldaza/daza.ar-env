@@ -53,6 +53,19 @@ function checkStatus(site) {
     .catch(() => 'down');
 }
 
+function renderSiteRow(site, status, statusClass) {
+  return `<tr>
+    <td>${site.name}</td>
+    <td><a href="${site.url}" target="_blank">${site.url}</a></td>
+    <td class="status ${statusClass}">${status}</td>
+    <td>${site.port}</td>
+    <td class="quick-actions">
+      <button class="btn" onclick="window.open('${site.url}', '_blank')">Open</button>
+      <button class="btn" onclick="openFolder('${site.folder}')">Folder</button>
+    </td>
+  </tr>`;
+}
+
 async function renderDashboard() {
   const dashboard = document.getElementById('dashboard');
   let html = `<table class="site-list">
@@ -67,16 +80,7 @@ async function renderDashboard() {
       status = 'down';
       statusClass = 'status-down';
     }
-    html += `<tr>
-      <td>${site.name}</td>
-      <td><a href="${site.url}" target="_blank">${site.url}</a></td>
-      <td class="${statusClass}">${status}</td>
-      <td>${site.port}</td>
-      <td class="quick-actions">
-        <button onclick="window.open('${site.url}', '_blank')">Open</button>
-        <button onclick="openFolder('${site.folder}')">Folder</button>
-      </td>
-    </tr>`;
+    html += renderSiteRow(site, status, statusClass);
   }
   html += '</tbody></table>';
   dashboard.innerHTML = html;

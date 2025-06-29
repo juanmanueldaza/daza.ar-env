@@ -1,4 +1,16 @@
 # daza.ar Environment Setup
+<!-- SITES_TABLE_START -->
+| Site | Port | URL |
+|------|------|-----|
+| cv | 3001 | http://cv.local:3001 |
+| onepager | 3002 | http://onepager.local:3002 |
+| start | 3003 | http://start.local:3003 |
+| navbar | 3004 | http://navbar.local:3004 |
+| mdsite | 3005 | http://mdsite.local:3005 |
+| data | 3006 | http://data.local:3006 |
+| wallpapers | 3007 | http://wallpapers.local:3007 |
+
+<!-- SITES_TABLE_END -->
 
 A simple setup script to bootstrap the development environment for daza.ar projects by creating a structured workspace and cloning all necessary repositories.
 
@@ -8,6 +20,28 @@ This repository provides tools to quickly set up and develop the daza.ar ecosyst
 
 - A setup script to clone all required repositories into a `sites/` directory.
 - A unified development workflow to serve all sites locally with Vite, each on its own port.
+
+## Quick Start
+
+To check prerequisites and set up your environment, simply run:
+
+```bash
+./setup.sh
+```
+
+This script will guide you through all required steps and report any missing tools. For troubleshooting, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
+
+## Workflow and Usage
+
+- For development server status and health checks, run:
+  ```bash
+  ./status.sh
+  ```
+- For starting all dev servers:
+  ```bash
+  ./dev.sh
+  ```
+- For more details on workflow, branching, and PRs, see the sections below.
 
 ## Prerequisites
 
@@ -25,6 +59,18 @@ gh auth login
 ```
 
 # Git, GitHub CLI, and Workflow Documentation
+<!-- SITES_TABLE_START -->
+| Site | Port | URL |
+|------|------|-----|
+| cv | 3001 | http://cv.local:3001 |
+| onepager | 3002 | http://onepager.local:3002 |
+| start | 3003 | http://start.local:3003 |
+| navbar | 3004 | http://navbar.local:3004 |
+| mdsite | 3005 | http://mdsite.local:3005 |
+| data | 3006 | http://data.local:3006 |
+| wallpapers | 3007 | http://wallpapers.local:3007 |
+
+<!-- SITES_TABLE_END -->
 
 ## Branching Strategy
 
@@ -101,35 +147,6 @@ gh auth login
 ---
 
 _For more detail, see `.github/ISSUE_TEMPLATE/branch_workflow.md` and `.github/ISSUE_TEMPLATE/feature_improvement.md`._
-
-## Quick Start
-
-1. Clone this repository:
-
-   ```bash
-   git clone <this-repository-url>
-   cd daza.ar-env
-   ```
-
-2. Run the setup script to clone all project repositories:
-
-   ```bash
-   ./setup.sh
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start all development servers (each site will open in your browser):
-
-   ```bash
-   ./dev.sh
-   ```
-
-   > Each site will be served on a different port (see below).
 
 ## What Gets Cloned
 

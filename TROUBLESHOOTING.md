@@ -4,22 +4,30 @@ This guide covers common issues you might encounter when setting up and using th
 
 ## Quick Diagnostics
 
-Run these commands to check your environment:
+First, run the provided scripts for automated checks:
 
 ```bash
-# Check prerequisites
-node --version
-npm --version
-git --version
-gh --version
-gh auth status
-
-# Check project state
-ls -la sites/
-npm ls
+./setup.sh   # Checks prerequisites and sets up your environment
+./status.sh  # Checks project health and running servers
 ```
 
+If a script reports an error, refer to the relevant section below for solutions.
+
 ## Common Issues
+
+- If `setup.sh` or `status.sh` reports a missing tool, follow the installation instructions in the script output.
+- For authentication errors, run:
+  ```bash
+  gh auth login
+  # Follow the prompts to authenticate
+  gh auth status  # Verify authentication
+  ```
+- For permission errors, make scripts executable:
+  ```bash
+  chmod +x setup.sh dev.sh workflow.sh
+  ./setup.sh
+  ```
+- For missing directories or dependencies, follow the script’s suggestions or see the detailed solutions below.
 
 ### 1. Setup Script Fails
 

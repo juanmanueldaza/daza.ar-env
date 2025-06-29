@@ -1,0 +1,9 @@
+[
+  { "name": "cv", "port": 3001, "host": "cv.local", "folder": "sites/cv", "entry": "sites/cv/index.html" },
+  { "name": "onepager", "port": 3002, "host": "onepager.local", "folder": "sites/onepager", "entry": "sites/onepager/index.html" },
+  { "name": "start", "port": 3003, "host": "start.local", "folder": "sites/start", "entry": "sites/start/index.html" },
+  { "name": "navbar", "port": 3004, "host": "navbar.local", "folder": "sites/navbar", "entry": "sites/navbar/index.html" },
+  { "name": "mdsite", "port": 3005, "host": "mdsite.local", "folder": "sites/mdsite", "entry": "sites/mdsite/index.html" },
+  { "name": "data", "port": 3006, "host": "data.local", "folder": "sites/data", "entry": "sites/data/index.html", "open": "/README.md" },
+  { "name": "wallpapers", "port": 3007, "host": "wallpapers.local", "folder": "sites/wallpapers", "entry": "sites/wallpapers/index.html" }
+]

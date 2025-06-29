@@ -6,6 +6,9 @@
 
 set -e  # Exit on any error
 
+# Source shared utilities
+source "$(dirname "$0")/lib.sh"
+
 # Parse command line arguments
 HOSTS_ONLY=false
 if [[ "$1" == "--hosts-only" ]]; then
@@ -16,20 +19,20 @@ fi
 check_prerequisites() {
     local missing_tools=()
 
-    if ! command -v gh &> /dev/null; then
+    if ! command_exists gh; then
         missing_tools+=("GitHub CLI (gh)")
     fi
 
-    if ! command -v git &> /dev/null; then
+    if ! command_exists git; then
         missing_tools+=("Git")
     fi
 
-    if ! command -v node &> /dev/null; then
+    if ! command_exists node; then
         missing_tools+=("Node.js")
     fi
 
     if [ ${#missing_tools[@]} -gt 0 ]; then
-        echo "❌ Missing required tools:"
+        echo -e "${CROSS} Missing required tools:"
         for tool in "${missing_tools[@]}"; do
             echo "   - $tool"
         done
@@ -41,7 +44,7 @@ check_prerequisites() {
 
     # Check GitHub CLI authentication
     if ! gh auth status &> /dev/null; then
-        echo "❌ GitHub CLI not authenticated."
+        echo -e "${CROSS} GitHub CLI not authenticated."
         echo "Please run: gh auth login"
         exit 1
     fi

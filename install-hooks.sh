@@ -2,14 +2,17 @@
 # Simple pre-commit hook installer - no extra dependencies needed
 # Usage: ./install-hooks.sh
 
+# Source shared utilities
+source "$(dirname "$0")/lib.sh"
+
 HOOK_FILE=".git/hooks/pre-commit"
 
 if [ ! -d ".git" ]; then
-    echo "❌ Not a git repository"
+    echo -e "${CROSS} Not a git repository"
     exit 1
 fi
 
-echo "🪝 Installing pre-commit hook..."
+echo -e "${INFO} Installing pre-commit hook..."
 
 cat > "$HOOK_FILE" << 'EOF'
 #!/bin/bash
@@ -34,10 +37,10 @@ echo "✅ All pre-commit checks passed!"
 EOF
 
 chmod +x "$HOOK_FILE"
-echo "✅ Pre-commit hook installed successfully!"
+echo -e "${CHECK} Pre-commit hook installed successfully!"
 echo ""
-echo "💡 Quick commands to fix issues:"
+echo -e "${INFO} Quick commands to fix issues:"
 echo "   - Fix linting: npm run lint:fix"
 echo "   - Fix formatting: npm run format"
 echo ""
-echo "🔧 The hook will now run automatically before each commit."
+echo -e "${INFO} The hook will now run automatically before each commit."
