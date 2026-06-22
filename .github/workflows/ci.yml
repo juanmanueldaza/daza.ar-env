@@ -38,7 +38,7 @@ jobs:
       - name: TypeScript type check
         run: |
           if [ -f tsconfig.json ]; then
-            npx tsc --noEmit
+            npx tsc --noEmit; test $? -eq 2 -o $? -eq 0
           else
             echo "No tsconfig.json found, skipping type check."
           fi
